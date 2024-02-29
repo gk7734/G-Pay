@@ -1,4 +1,4 @@
-# toonflix
+# G-Pay
 
 A new Flutter project.
 
