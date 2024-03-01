@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:io' show Platform;
 
@@ -125,30 +124,51 @@ class App extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: EdgeInsets.all(Platform.isAndroid ? 25 : 30),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "Euro",
                             style: TextStyle(
-                              color: Colors.white,
-                              fontSize: Platform.isAndroid ? 28 : 32,
-                              fontWeight: FontWeight.w600
-                            ),
+                                color: Colors.white,
+                                fontSize: Platform.isAndroid ? 28 : 32,
+                                fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(
                             height: 10,
                           ),
-                          const Row(
+                          Row(
                             children: [
-                              Text("6 428"),
-                              Text("EUR"),
+                              const Text(
+                                "6 428",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                "EUR",
+                                style: TextStyle(
+                                    color: Colors.white.withOpacity(0.8),
+                                    fontSize: 20),
+                              ),
                             ],
                           ),
                         ],
                       ),
+                      Transform.scale(
+                        scale: 2.2,
+                        child: Icon(
+                          Icons.euro_rounded,
+                          color: Colors.white,
+                          size: Platform.isAndroid ? 80 : 88,
+                        ),
+                      )
                     ],
                   ),
                 ),
